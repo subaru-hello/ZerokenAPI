@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class Customer
-    attr_reader :motivation, :weight, :name, :email
+  attr_reader :motivation, :weight, :name, :email
+
   # 使用するデータを定義する
-  def initialize(attrs)
+  def initialize(_attrs)
     @weight = weight
     @motivation = motivation
   end
 
   def weight
-    weight ||= Weight.new 
+    weight ||= Weight.new
   end
 
   # 実装したい振る舞い
