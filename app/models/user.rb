@@ -6,4 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   before_create -> { self.uuid = SecureRandom.uuid }
+  has_many :diagnoses, dependent: :destroy
+  enum liver_capacity: { low: 0, middle: 1, high: 2 }
 end
