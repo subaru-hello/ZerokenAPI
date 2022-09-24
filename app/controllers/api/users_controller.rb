@@ -3,7 +3,7 @@
 module Api
   class UsersController < ApplicationController
     def index
-      @users = User.all
+      @users = Users::UserRepository.fetch_users
       render json: @users
     end
   end
