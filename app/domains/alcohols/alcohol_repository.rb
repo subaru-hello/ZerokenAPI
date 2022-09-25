@@ -9,8 +9,9 @@ module Alcohols
     class << self
       def save(alcohol); end
 
-      def fetch_alcohols
-        ActiveRecord::Base.connection.execute('SELECT * FROM alcohols')
+      def fetch_alcohols(alcohol)
+        #  ActiveRecord::Base.connection.execute('SELECT a.id , a.name,a.price, a.percentage, a.amount, a.expiration_date FROM alcohols a')
+        alcohol
       end
     end
   end
