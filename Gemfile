@@ -56,5 +56,5 @@ gem 'faker'
 gem 'faker-japanese'
 gem 'graphiql-rails'
 gem 'graphql'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'sass-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

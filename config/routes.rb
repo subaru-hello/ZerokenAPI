@@ -3,9 +3,8 @@
 Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
-  # rubocop:disable Style/IfUnlessModifier
-  if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql' 
+  if Rails.env.development? # rubocop:disable Style/IfUnlessModifier
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
   end
   devise_for :users
 
