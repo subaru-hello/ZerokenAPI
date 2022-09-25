@@ -54,6 +54,7 @@ gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'faker-japanese'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'graphql'
 gem 'graphiql-rails'
+gem 'graphql'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'sass-rails'
