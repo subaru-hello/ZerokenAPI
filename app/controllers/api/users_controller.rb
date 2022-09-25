@@ -2,9 +2,14 @@
 
 module Api
   class UsersController < ApplicationController
+    before_action :fetch_users, only: %i[index]
     def index
-      @users = Users::UserRepository.fetch_users
-      render json: @users
+      @user_all = Users::UserRepository.fetch_users(@users)
+      render json: @user_all
+    end
+
+    def fetch_users
+      @users = User.all
     end
   end
 end

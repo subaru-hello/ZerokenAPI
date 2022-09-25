@@ -6,8 +6,9 @@ module Users
     class << self
       def save(attr); end
 
-      def fetch_users
-        ActiveRecord::Base.connection.execute('SELECT * FROM users')
+      def fetch_users(users)
+        # ActiveRecord::Base.connection.execute('SELECT * FROM users')
+        users
       end
     end
   end
