@@ -33,6 +33,7 @@ group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0.0'
 end
 
@@ -50,8 +51,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise'
-
-gem 'factory_bot_rails'
 gem 'faker'
 gem 'faker-japanese'
 gem 'graphiql-rails'
