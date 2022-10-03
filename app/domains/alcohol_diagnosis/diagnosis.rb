@@ -5,6 +5,7 @@ module AlcoholDiagnosis
     # 必要なattrを定義
     attr_reader :points
 
+    # controller からインプットが入ってきて、そこからポイントと体重を抽出
     def initialize(params: default_params_array)
       @points = params[:points]
       @weight = params[:weight]
@@ -15,14 +16,16 @@ module AlcoholDiagnosis
     #   end
     # end
 
-    def alcohol_strongness
+    # お酒の強さを返す expected one of these high,middle,low
+    def exec
       determine_alcohol_strongness
     end
 
     private
 
-    def determine_recommended_liquor
-      # 酩酊・ほろ酔い・爽快の状態になる上で必要なお酒領を計算し、その量をもつお酒の組み合わせを提供する
+    def determine_alcohol_strongness
+      alcohol_decompose = AlcoholDianosis::AlcoholDecompose.new
+      alcohol_decompose.exec
     end
 
     def alcohol_amount
@@ -30,66 +33,6 @@ module AlcoholDiagnosis
     end
 
     def weight; end
-
-    def determine_alcohol_strongness
-      result_points = replace_answer_to_point(points)
-      return 'low' if result_points.positive?
-      return 'middle' if result_points.zero?
-      return 'high' if result_points.negative?
-    end
-
-    def replace_answer_to_point(points)
-      result_point = 0
-      points.each do |point|
-        result_point += points_for_alcohol_index_caluculation[point - 1]
-      end
-
-      result_point
-    end
-
-    def points_for_alcohol_index_caluculation
-      [
-        -10.04,
-        8.95,
-        5.22,
-        -0.43,
-        -2.98,
-        1.2,
-        3.37,
-        -3.89,
-        0.38,
-        -0.58,
-        -1.27,
-        0.25,
-        0.31,
-        0.36,
-        -1.03,
-        0.3,
-        -4.11,
-        0.1,
-        -0.79,
-        0.07,
-        0.01,
-        0.83,
-        0.62,
-        -0.24,
-        -3.25,
-        1.43,
-        -0.44,
-        -3.25,
-        1.43,
-        -0.44,
-        -10.07,
-        -0.79,
-        10.8,
-        8.15,
-        -2.42,
-        0.14,
-        -4.34,
-        2.69,
-        -0.19
-      ]
-    end
 
     def default_params_array
       {
