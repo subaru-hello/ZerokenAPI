@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateAlcohols < ActiveRecord::Migration[6.1]
+class CreateLiquors < ActiveRecord::Migration[6.1]
   def change
-    create_table :alcohols do |t|
+    create_table :liquors do |t|
       t.string :name, null: false
       t.integer :price, null: false
       t.string :percentage, null: false
