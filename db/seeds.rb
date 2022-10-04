@@ -7,6 +7,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
 # User
 user = User.create(
@@ -14,18 +15,15 @@ user = User.create(
 )
 
 # Liquor
-Liquor.create([
-                { name:            'Beer',
-                  price:           300,
-                  percentage:      '5.0',
-                  amount:          500,
-                  expiration_date: DateTime.now.beginning_of_day + 1.week },
-                { name:            'Lemon Sour',
-                  price:           200,
-                  percentage:      '3.0',
-                  amount:          500,
-                  expiration_date: DateTime.now.beginning_of_day + 1.week }
-              ])
+CSV.foreach('sake.csv', headers: true) do |row|
+  Liquor.create(
+    { name:             row['name'],
+      price:           row['price'],
+      percentage:       row['percentage'],
+      amount:           row['amount'],
+      expiration_date: DateTime.now.beginning_of_day + 1.week }
+  )
+end
 
 # Diagnose
 Diagnosis.create!(
@@ -37,3 +35,6 @@ Diagnosis.create!(
     user:               user
   }
 )
+
+
+
