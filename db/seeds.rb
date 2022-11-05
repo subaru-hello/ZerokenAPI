@@ -17,10 +17,10 @@ user = User.create(
 # Liquor
 CSV.foreach('sake.csv', headers: true) do |row|
   Liquor.create(
-    { name:             row['name'],
+    { name:            row['name'],
       price:           row['price'],
-      percentage:       row['percentage'],
-      amount:           row['amount'],
+      percentage:      row['percentage'],
+      amount:          row['amount'],
       expiration_date: DateTime.now.beginning_of_day + 1.week }
   )
 end
@@ -35,6 +35,3 @@ Diagnosis.create!(
     user:               user
   }
 )
-
-
-
