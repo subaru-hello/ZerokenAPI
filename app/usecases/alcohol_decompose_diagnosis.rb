@@ -8,7 +8,7 @@ class AlcoholDecomposeDiagnosis
 
   # ユーザーの診断結果を保存する処理を書く。
   def execute
-    user_alcohol_tolerance 
+    user_alcohol_tolerance
     # if save(attr)
     # 必要なアルコール量を計算する(体重)
     # おすすめのお酒を配列に入れる（アルコール量）

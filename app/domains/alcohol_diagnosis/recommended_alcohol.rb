@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AlcoholDiagnosis
-  class RecommendedAlcohol
+  class RecommendedLiquor
     def initialize(attr)
       @alcohol_amount = attr[:alcohol_amount]
       @alcohol_percentage = attr[:alcohol_percentage]
@@ -24,6 +24,7 @@ module AlcoholDiagnosis
 
     def required_per_alcohol_amount_for_the_alcohol_in_vein
       # レモンサワーから日本酒まで、アルコール量を入れたら何杯か出力される関数を作成
+      
     end
 
     def coma; end

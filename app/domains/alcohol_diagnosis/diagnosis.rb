@@ -10,11 +10,6 @@ module AlcoholDiagnosis
       @points = params[:points]
       @weight = params[:weight]
     end
-    # def prepare_tast_result(_preparers)
-    #   prepares.each do |prepare|
-    #     prepare.prepare_tast_result(self)
-    #   end
-    # end
 
     # お酒の強さを返す expected one of these high,middle,low
     def exec

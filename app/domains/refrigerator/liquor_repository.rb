@@ -13,6 +13,11 @@ module Refrigerator
         #  ActiveRecord::Base.connection.execute('SELECT a.id , a.name,a.price, a.percentage, a.amount, a.expiration_date FROM alcohols a')
         alcohol
       end
+
+      def fetch_recommend_liquors
+      liquors =  ActiveRecord::Base.connection.execute('SELECT  a.name, a.percentage, a.amount FROM liquors a')
+      puts liquors
+      end
     end
   end
 end

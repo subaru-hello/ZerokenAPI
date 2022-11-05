@@ -18,5 +18,10 @@ module AlcoholDiagnosis
       return 'middle' if result_points.zero?
       return 'high' if result_points.negative?
     end
+
+    def total_points
+      total_points ||= AlcoholDiagnosis::AlcoholIndex.new
+     @total_points =  total_points.exec
+    end
   end
 end

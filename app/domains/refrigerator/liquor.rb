@@ -35,7 +35,11 @@ module Refrigerator
 
     attr_reader :alcohol_percentage, :alcohol_amount
 
-    def container; end
+    def liquors
+      Refrigerator::LiquorRepository.fetch_recommend_liquors
+    end
+
+    def calculate_required_total_amount; end
 
     def select_adequate_liquor
       # 適したお酒を抽出し、そのアルコール量を出す
@@ -50,9 +54,9 @@ module Refrigerator
       biodistribution_index * user_weight
     end
 
-    def pure_alcohol_amount
+    def pure_alcohol_amount(amount, percentage)
       # 容量✖️度数✖️0.8 = アルコール量
-      alcohol_amount * alcohol_percentage * alcohol_ratio
+      amount * percentage * alcohol_ratio
     end
 
     def alcohol_ratio
