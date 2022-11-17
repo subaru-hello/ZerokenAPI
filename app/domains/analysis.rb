@@ -1,34 +1,44 @@
 # frozen_string_literal: true
 
 class AnalysisSum
-  attr_reader :answer_1, :answer_2
+  attr_reader :answers
 
   def initialize(attr)
-    @answer_1 = attr[:answer_1]
-    @answer_2 = attr[:answer_2]
+    @answers = attr
   end
 
+  #お酒の強さを診断する
   def execute
-    calculate
+    total_point = sum_answers(answers)
+    calculate(total_point)
+  end
+
+  #alcohol_indexを取得する
+  def total_point
+    sum_answers(answers)
   end
 
   private
 
   # 値を全て合計する
-  def calculate
-    total_point = []
-    1.upto(2).each do |_i|
-      total_point << answer_ # {i}
+  def calculate(total_point)
+    if total_point.negative?
+      'お酒に弱い'
+    elsif total_point.positive?
+      'お酒に強い'
+    else
+      '測定不能'
     end
-    total_point.inject(0) { |sum, num| sum += num }
   end
 
   # 回答を値に変換する
-  def sum_answers
+  def sum_answers(answer_arrs)
     array = []
-
-    point = points_for_alcohol_index_caluculation[i]
-    array.push(point)
+    answer_arrs.values.each do |answer|
+      point = points_for_alcohol_index_caluculation[answer]
+      array.push(point)
+    end
+    array.sum
   end
 
   # 各回答の値に対応する数値
