@@ -3,5 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'association' do
+    it { should have_many(:analyses) }
+    it { should have_many(:diagnoses) }
+    it { should have_many(:favorites) }
+    it { should have_many(:liquors).through(:favorites) }
+  end
 end

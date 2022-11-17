@@ -15,5 +15,6 @@ FactoryBot.define do
     answer_11 { 1 }
     answer_12 { 1 }
     answer_13 { 1 }
+    user
   end
 end

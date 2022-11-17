@@ -3,5 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Liquor, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'association' do
+    it { should have_many(:categories).through(:category_tags) }
+    it { should have_many(:category_tags) }
+    it { should have_many(:favorites) }
+    it { should have_many(:users).through(:favorites) }
+  end
 end
