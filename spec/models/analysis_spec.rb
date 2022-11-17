@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Diagnosis, type: :model do
+RSpec.describe Analysis, type: :model do
   describe 'association' do
     it { should belong_to(:user) }
   end

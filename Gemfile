@@ -54,4 +54,5 @@ gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'faker-japanese'
+gem 'rails-erd', group: :development
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
