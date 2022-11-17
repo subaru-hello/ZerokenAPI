@@ -18,11 +18,11 @@ RSpec.describe AnalysisSum, type: :model do
 
     context '#execute' do
       it do
-        expect(AnalysisSum.new(answers_strong).execute).to eq('お酒に強い')
+        expect(AnalysisSum.new(answers_strong).execute).to eq(1)
       end
 
       it do
-        expect(AnalysisSum.new(answers_weak).execute).to eq('お酒に弱い')
+        expect(AnalysisSum.new(answers_weak).execute).to eq(0)
       end
     end
     context '#total_point' do
