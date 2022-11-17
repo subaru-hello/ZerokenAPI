@@ -7,13 +7,13 @@ class AnalysisSum
     @answers = attr
   end
 
-  #お酒の強さを診断する
+  # お酒の強さを診断する
   def execute
     total_point = sum_answers(answers)
     calculate(total_point)
   end
 
-  #alcohol_indexを取得する
+  # alcohol_indexを取得する
   def total_point
     sum_answers(answers)
   end
@@ -34,7 +34,7 @@ class AnalysisSum
   # 回答を値に変換する
   def sum_answers(answer_arrs)
     array = []
-    answer_arrs.values.each do |answer|
+    answer_arrs.each_value do |answer|
       point = points_for_alcohol_index_caluculation[answer]
       array.push(point)
     end
