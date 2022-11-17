@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Diagnosis < ApplicationRecord
+class Analysis < ApplicationRecord
   belongs_to :user
 end
