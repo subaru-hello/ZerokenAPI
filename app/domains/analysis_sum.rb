@@ -23,11 +23,11 @@ class AnalysisSum
   # 値を全て合計する
   def calculate(total_point)
     if total_point.negative?
-      'お酒に弱い'
+      0
     elsif total_point.positive?
-      'お酒に強い'
+      1
     else
-      '測定不能'
+      2
     end
   end
 
